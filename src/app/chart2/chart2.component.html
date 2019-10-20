@@ -1,0 +1,10 @@
+<div class='container'>
+  <h4 class='less-bottom'>Choose item to view region totals</h4>
+  <mat-form-field>
+    <mat-label>Select an item</mat-label>
+    <mat-select [(ngModel)]="selected" (selectionChange)="onChange($event)">
+      <mat-option *ngFor="let item of items; let i = index" [value]="i.toString()">{{item}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <div [chart]="chart"></div>
+</div>
