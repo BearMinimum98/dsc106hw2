@@ -9,10 +9,10 @@ import * as Highcharts from 'highcharts'
 })
 export class Chart2Component implements OnInit, OnChanges {
   @Input()
-  private data: any[][] = null
+  private data: (string | number)[][] = null
   chart: Chart = null
   chartRef: Highcharts.Chart = null
-  selected: string = '0';
+  selected: string = '0'
   items: string[] = ['Hamburger', 'Chicken Fillet', 'Fish Fillet']
   constructor() { }
   ngOnInit() { }
@@ -29,7 +29,7 @@ export class Chart2Component implements OnInit, OnChanges {
           enabled: false
         },
         xAxis: {
-          categories: this.data.map(x => x[0]),
+          categories: this.data.map((x): string => x[0] as string),
           title: {
             text: 'Month'
           },
@@ -50,44 +50,44 @@ export class Chart2Component implements OnInit, OnChanges {
         },
         series: [{
           name: 'Northeast',
-          data: this.data.map(x => x[1])
+          data: this.data.map((x: (string | number)[]): number => x[1] as number)
         } as any, {
           name: 'Southwest',
-          data: this.data.map(x => x[4])
+          data: this.data.map((x: (string | number)[]): number => x[4] as number)
         } as any, {
           name: 'Northwest',
-          data: this.data.map(x => x[7])
+          data: this.data.map((x: (string | number)[]): number => x[7] as number)
         } as any, {
           name: 'Southeast',
-          data: this.data.map(x => x[10])
+          data: this.data.map((x: (string | number)[]): number => x[10] as number)
         } as any, {
           name: 'Central',
-          data: this.data.map(x => x[13])
+          data: this.data.map((x: (string | number)[]): number => x[13] as number)
         } as any,]
       })
       this.chart.ref$.subscribe(x => this.chartRef = x)
     }
   }
-  onChange(e: { value: string; }) {
+  onChange(e: { value: string }) {
     this.chartRef.update({
       title: {
         text: `Region Totals For ${this.items[this.selected]}`
       },
       series: [{
         name: 'Northeast',
-        data: this.data.map(x => x[1 + parseInt(e.value)])
+        data: this.data.map((x: (string | number)[]): number => x[1 + parseInt(e.value)] as number)
       } as any, {
         name: 'Southwest',
-        data: this.data.map(x => x[4 + parseInt(e.value)])
+        data: this.data.map((x: (string | number)[]): number => x[4 + parseInt(e.value)] as number)
       } as any, {
         name: 'Northwest',
-        data: this.data.map(x => x[7 + parseInt(e.value)])
+        data: this.data.map((x: (string | number)[]): number => x[7 + parseInt(e.value)] as number)
       } as any, {
         name: 'Southeast',
-        data: this.data.map(x => x[10 + parseInt(e.value)])
+        data: this.data.map((x: (string | number)[]): number => x[10 + parseInt(e.value)] as number)
       } as any, {
         name: 'Central',
-        data: this.data.map(x => x[13 + parseInt(e.value)])
+        data: this.data.map((x: (string | number)[]): number => x[13 + parseInt(e.value)] as number)
       } as any,]
     })
   }

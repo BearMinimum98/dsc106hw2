@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core';
+import { Component, OnInit, OnChanges, SimpleChanges, Input } from '@angular/core'
 import { Chart } from 'angular-highcharts'
 
 @Component({
@@ -8,12 +8,11 @@ import { Chart } from 'angular-highcharts'
 })
 export class Chart4Component implements OnInit, OnChanges {
   @Input()
-  private data: any[][] = null
+  private data: (string | number)[][] = null
   chart: Chart = null
   constructor() {}
 
-  ngOnInit() {
-  }
+  ngOnInit() {}
 
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data'] != null && changes['data']['currentValue']) {
@@ -28,7 +27,7 @@ export class Chart4Component implements OnInit, OnChanges {
           enabled: false
         },
         xAxis: {
-          categories: this.data.map(x => x[0]),
+          categories: this.data.map((x: (string | number)[]): string => `${(x[0] as number)} (${(x[1] as number)})`),
           title: {
             text: 'Day of Week'
           }
@@ -43,19 +42,19 @@ export class Chart4Component implements OnInit, OnChanges {
         },
         series: [{
           name: 'Northeast',
-          data: this.data.map(x => x[2] + x[3] + x[4])
+          data: this.data.map((x: (string | number)[]): number => ((x[2] as number) as number) + ((x[3] as number) as number) + ((x[4] as number) as number))
         } as any, {
           name: 'Southwest',
-          data: this.data.map(x => x[5] + x[6] + x[7])
+          data: this.data.map((x: (string | number)[]): number => (x[5] as number) + (x[6] as number) + (x[7] as number))
         } as any, {
           name: 'Northwest',
-          data: this.data.map(x => x[8] + x[9] + x[10])
+          data: this.data.map((x: (string | number)[]): number => (x[8] as number) + (x[9] as number) + (x[10] as number))
         } as any, {
           name: 'Southeast',
-          data: this.data.map(x => x[11] + x[12] + x[13])
+          data: this.data.map((x: (string | number)[]): number => (x[11] as number) + (x[12] as number) + (x[13] as number))
         } as any, {
           name: 'Central',
-          data: this.data.map(x => x[14] + x[15] + x[16])
+          data: this.data.map((x: (string | number)[]): number => (x[14] as number) + (x[15] as number) + (x[16] as number))
         } as any,]
       })
     }

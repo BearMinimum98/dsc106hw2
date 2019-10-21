@@ -1,0 +1,23 @@
+<div class='container'>
+  <div class='flex-container'>
+      <div class='flex-child'>
+        <h4 class='less-bottom'>Choose an item</h4>
+        <mat-form-field>
+          <mat-label>Select an item</mat-label>
+          <mat-select [(ngModel)]="selectedItem" (selectionChange)="onChangeItem($event)">
+            <mat-option *ngFor="let item of items; let i = index" [value]="i.toString()">{{item}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+      <div class='flex-child'>
+        <h4 class='less-bottom'>Choose a region</h4>
+        <mat-form-field>
+          <mat-label>Select a region</mat-label>
+          <mat-select [(ngModel)]="selectedRegion" (selectionChange)="onChangeRegion($event)">
+            <mat-option *ngFor="let item of regions; let i = index" [value]="i.toString()">{{item}}</mat-option>
+          </mat-select>
+        </mat-form-field>
+      </div>
+  </div>
+  <div [chart]=chart></div>
+</div>

@@ -1,5 +1,5 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core';
-import { Chart } from 'angular-highcharts';
+import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core'
+import { Chart } from 'angular-highcharts'
 
 @Component({
   selector: 'app-chart1',
@@ -8,7 +8,7 @@ import { Chart } from 'angular-highcharts';
 })
 export class Chart1Component implements OnInit, OnChanges {
   @Input()
-  private data: any[][]
+  private data: (string | number)[][]
   chart: Chart = null
   constructor() { }
   ngOnInit() { }
@@ -25,7 +25,7 @@ export class Chart1Component implements OnInit, OnChanges {
           enabled: false
         },
         xAxis: {
-          categories: this.data.map(x => x[0]),
+          categories: this.data.map((x): string => x[0] as string),
           title: {
             text: 'Month'
           },
@@ -46,19 +46,19 @@ export class Chart1Component implements OnInit, OnChanges {
         },
         series: [{
           name: 'Northeast',
-          data: this.data.map(x => x[1] + x[2] + x[3])
+          data: this.data.map((x: (string | number)[]): number => (x[1] as number) + (x[2] as number) + (x[3] as number))
         } as any, {
           name: 'Southwest',
-          data: this.data.map(x => x[4] + x[5] + x[6])
+          data: this.data.map((x: (string | number)[]): number => (x[4] as number) + (x[5] as number) + (x[6] as number))
         } as any, {
           name: 'Northwest',
-          data: this.data.map(x => x[7] + x[8] + x[9])
+          data: this.data.map((x: (string | number)[]): number => (x[7] as number) + (x[8] as number) + (x[9] as number))
         } as any, {
           name: 'Southeast',
-          data: this.data.map(x => x[10] + x[11] + x[12])
+          data: this.data.map((x: (string | number)[]): number => (x[10] as number) + (x[11] as number) + (x[12] as number))
         } as any, {
           name: 'Central',
-          data: this.data.map(x => x[13] + x[14] + x[15])
+          data: this.data.map((x: (string | number)[]): number => (x[13] as number) + (x[14] as number) + (x[15] as number))
         } as any,]
       })
     }
