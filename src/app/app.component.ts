@@ -7,7 +7,6 @@ import { HttpClient } from '@angular/common/http'
   styleUrls: ['./app.component.sass']
 })
 export class AppComponent implements OnInit {
-  title = 'HW2'
   monthly_data: (string | number)[][] = null
   daily_data: (string | number)[][] = null
 
