@@ -1,4 +1,4 @@
-import { Component, OnInit, OnChanges, Input, SimpleChanges } from '@angular/core'
+import { Component, OnChanges, Input, SimpleChanges } from '@angular/core'
 import { Chart } from 'angular-highcharts'
 import * as Highcharts from 'highcharts'
 
@@ -7,7 +7,7 @@ import * as Highcharts from 'highcharts'
   templateUrl: './chart5.component.html',
   styleUrls: ['./chart5.component.sass']
 })
-export class Chart5Component implements OnInit, OnChanges {
+export class Chart5Component implements OnChanges {
   @Input()
   private data: (string | number)[][] = null
   chart: Chart = null
@@ -17,9 +17,6 @@ export class Chart5Component implements OnInit, OnChanges {
   selectedRegion: string = '0'
   regions: string[] = ['Northeast', 'Southwest', 'Northwest', 'Southeast', 'Central']
   constructor() { }
-
-  ngOnInit() {
-  }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data'] != null && changes['data']['currentValue']) {
       this.chart = new Chart({

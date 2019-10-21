@@ -1,4 +1,4 @@
-import { Component, Input, OnInit, OnChanges, SimpleChanges } from '@angular/core'
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core'
 import { Chart } from 'angular-highcharts'
 
 @Component({
@@ -6,12 +6,11 @@ import { Chart } from 'angular-highcharts'
   templateUrl: './chart1.component.html',
   styleUrls: ['./chart1.component.sass']
 })
-export class Chart1Component implements OnInit, OnChanges {
+export class Chart1Component implements OnChanges {
   @Input()
   private data: (string | number)[][]
   chart: Chart = null
   constructor() { }
-  ngOnInit() { }
   ngOnChanges(changes: SimpleChanges) {
     if (changes['data'] != null && changes['data']['currentValue']) {
       this.chart = new Chart({
