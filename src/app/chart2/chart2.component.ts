@@ -22,7 +22,7 @@ export class Chart2Component implements OnChanges {
           type: 'line'
         },
         title: {
-          text: `Region Totals For ${this.items[this.selected]}`
+          text: `Region Totals for ${this.items[this.selected]}`
         },
         credits: {
           enabled: false

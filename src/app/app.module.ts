@@ -15,7 +15,8 @@ import { FormsModule } from '@angular/forms'
 import { ReactiveFormsModule } from '@angular/forms'
 import { Chart3Component } from './chart3/chart3.component'
 import { Chart4Component } from './chart4/chart4.component'
-import { Chart5Component } from './chart5/chart5.component'
+import { Chart5Component } from './chart5/chart5.component';
+import { Chart6Component } from './chart6/chart6.component'
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { Chart5Component } from './chart5/chart5.component'
     Chart2Component,
     Chart3Component,
     Chart4Component,
-    Chart5Component
+    Chart5Component,
+    Chart6Component
   ],
   imports: [
     BrowserModule,
